@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+
+<script type="text/javascript"
+	th:src="@{/zogrid/dependents/jquery/jquery.min.js}"></script>
+<!-- bootstrap -->
+<script type="text/javascript"
+	th:src="@{/zogrid/dependents/bootstrap/js/bootstrap.min.js}"></script>
+<link rel="stylesheet" type="text/css"
+	th:href="@{/zogrid/dependents/bootstrap/css/bootstrap.min.css}" />
+<!--[if lt IE 9]>
+	    <script src="zogrid/dependents/bootstrap/plugins/ie/html5shiv.js"></script>
+	    <script src="zogrid/dependents/bootstrap/plugins/ie/respond.js"></script>
+	<![endif]-->
+<!--[if lt IE 8]>
+	    <script src="zogrid/dependents/bootstrap/plugins/ie/json2.js"></script>
+	<![endif]-->
+<!-- font-awesome -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/zogrid/dependents/fontAwesome/css/font-awesome.min.css}"
+	media="all" />
+<!-- DLShouWen Grid -->
+<script type="text/javascript" th:src="@{/zogrid/dlshouwen.grid.js}"></script>
+<script type="text/javascript" th:src="@{/zogrid/i18n/zh-cn.js}"></script>
+<link rel="stylesheet" type="text/css" th:href="@{/zogrid/dlshouwen.grid.css}" />
+<!-- datePicker -->
+<script type="text/javascript"
+	th:src="@{/zogrid/dependents/datePicker/WdatePicker.js}" defer="defer"></script>
+<link rel="stylesheet" type="text/css"
+	th:href="@{/zogrid/dependents/datePicker/skin/WdatePicker.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/zogrid/dependents/datePicker/skin/default/datepicker.css}" />
+
+</head>
+<body>
+	<div id="container" class="dlshouwen-grid-container"
+		onselectstart="return false;" style="-moz-user-select: none;"></div>
+	<div id="toolBar" class="dlshouwen-grid-toolbar-container"></div>
+
+</body>
+
+<script>//<![CDATA[
+	var gridColumns = [ {
+		id : 'content',
+		title : '阅读内容',
+		type : 'string',
+		columnClass : 'text-center',
+		fastQuery : true
+	},{
+		id : 'core',
+		title : '阅读分数',
+		type : 'number',
+		columnClass : 'text-center',
+		fastQuery : true
+	},{
+		id : 'isPushed',
+		title : '是否推送',
+		type : 'boolean',
+		columnClass : 'text-center',
+		fastQuery : true
+	},{
+		id : 'pushTime',
+		title : '推送时间',
+		type : 'date',
+		columnClass : 'text-center',
+		fastQuery : true,
+		resolution:function(value, record, column, grid, dataNo, columnNo){
+			alert('fdsf');
+			if(value){
+				return value;
+			}
+			return '未推送';
+ 		}
+	},{
+		id : 'createTime',
+		title : '创建时间',
+		type : 'date',
+		columnClass : 'text-center',
+		fastQuery : true
+	}];
+	var gridOption = {
+		dataPath : "_embedded.listens",	
+		ajaxLoad : true,
+		exportFileName : '用户列表',
+		loadURL : '/data/listens',
+		columns : gridColumns,
+		gridContainer : 'container',
+		toolbarContainer : 'toolBar',
+		pageSize : 10,
+		pageSizeLimit : [ 10, 15, 20, 50, 100 ],
+		lang : 'zh-cn',
+		tools : 'refresh|fastQuery'
+	};
+	var grid = $.fn.dlshouwen.grid.init(gridOption);
+	grid.load();
+
+//]]></script>
+
+
+</html>

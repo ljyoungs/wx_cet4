@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+登陆
+<form name="form" method="post" th:action="@{/login}">
+<input type="text" name="username" />
+<input type="password" name="password" />
+<input type="submit" value="登陆" />
+</form>
+</body>
+</html>

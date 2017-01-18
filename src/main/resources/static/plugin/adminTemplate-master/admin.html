@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>后台模板</title>
+	</head>
+    <link rel="stylesheet" href="css/admin.min.css" />
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script src="js/admin.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var menu = [{
+			name:"第一个菜单",
+			img:"img/icons/menu/inbox.png",
+			key:"one"
+		},{
+			name:"第二个菜单",
+			img:"img/icons/menu/layout.png",
+			subMenu:[{
+				name:"子菜单一",
+				key:"two"
+			},{
+				name:"子菜单二",
+				key:"three"
+			}]
+		},{
+			name:"第三个菜单",
+			img:"img/icons/menu/brush.png",
+			subMenu:[{
+				name:"子菜单三",
+				key:"four"
+			},{
+				name:"子菜单四",
+				key:"five"
+			}]
+		}];
+		adminTemplate.init({
+			menu:menu,
+			searchCallback:function(key){
+				alert("您要搜索的为："+key);
+			},
+			menuHandler:handler
+		});
+		
+		//菜单事件回调处理中心
+		function handler(key,text,title,content){
+			//标题变换
+			title.text(text);
+			//根据key值处理相关事件
+			switch(key){
+				case "one":{
+					content.html('点击了第一个菜单，为您提供导航：'+'<a href="http://www.baidu.com">百度</a>');
+					break;
+				}
+				case "two":{
+					content.text("点击了第二个菜单");
+					break;
+				}
+				default:{
+					content.text("点击了其它菜单");
+				}
+			}
+			
+		}
+	</script>
+	<body>
+	</body>
+</html>
