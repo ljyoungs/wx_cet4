@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class App 
 {
-	//加个注释传上去12
+	//加个注释传上去123
     public static void main( String[] args )
     {
         SpringApplication.run(App.class, args);
