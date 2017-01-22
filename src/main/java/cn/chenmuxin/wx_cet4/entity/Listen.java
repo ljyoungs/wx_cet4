@@ -5,17 +5,27 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="cet4_listen")
 public class Listen extends SendEntity {
 
+	
 	private String audio;
 	
 	@OneToMany
 	private List<Question> questions;
 
+//	@NotNull(message="选项不能为空")
+//	@Min(value=0,message="bun")
+//	@Size()
 	private String optionA;
+	
 	
 	private String optionB;
 	

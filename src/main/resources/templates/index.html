@@ -3,28 +3,33 @@
 
 <head>
 <meta charset="UTF-8" />
-<title>微信四级平台后台</title>
+<title >微信四级平台后台</title>
 </head>
 
 <link rel="stylesheet" type="text/css"
-	th:href="@{/plugin/adminTemplate-master/css/admin.min.css}" />
+	th:href="@{/resources/css/index.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/resources/plugin/adminTemplate-master/css/admin.min.css}" />
 
 <script type="text/javascript"
-	th:src="@{/zogrid/dependents/jquery/jquery.min.js}"></script>
-<script th:src="@{/plugin/adminTemplate-master/js/admin.min.js}"
+	th:src="@{/resources/zogrid/dependents/jquery/jquery.min.js}"></script>
+<script th:src="@{/resources/plugin/adminTemplate-master/js/admin.min.js}"
 	type="text/javascript" charset="utf-8"></script>
-
-<link rel="stylesheet" type="text/css" th:href="@{/css/loading.css}" />
-<script type="text/javascript" th:src="@{/js/loading.min.js}"></script>
-
-<link rel="stylesheet" type="text/css" th:href="@{/css/sweetalert.css}" />
-<script type="text/javascript" th:src="@{/js/sweetalert.min.js}"></script>
+<link rel="stylesheet" type="text/css"
+	th:href="@{/resources/css/loading.css}" />
+<script type="text/javascript"
+	th:src="@{/resources/js/loading.min.js}"></script>	
+	
+<link rel="stylesheet" type="text/css"
+	th:href="@{/resources/css/sweetalert.css}" />
+<script type="text/javascript"
+	th:src="@{/resources/js/sweetalert.min.js}"></script>
 
 <!-- bootstrap -->
 <script type="text/javascript"
-	th:src="@{/zogrid/dependents/bootstrap/js/bootstrap.min.js}"></script>
+	th:src="@{/resources/zogrid/dependents/bootstrap/js/bootstrap.min.js}"></script>
 <link rel="stylesheet" type="text/css"
-	th:href="@{/zogrid/dependents/bootstrap/css/bootstrap.min.css}" />
+	th:href="@{/resources/zogrid/dependents/bootstrap/css/bootstrap.min.css}" />
 <!--[if lt IE 9]>
 	    <script src="zogrid/dependents/bootstrap/plugins/ie/html5shiv.js"></script>
 	    <script src="zogrid/dependents/bootstrap/plugins/ie/respond.js"></script>
@@ -34,25 +39,25 @@
 	<![endif]-->
 <!-- font-awesome -->
 <link rel="stylesheet" type="text/css"
-	th:href="@{/zogrid/dependents/fontAwesome/css/font-awesome.min.css}"
+	th:href="@{/resources/zogrid/dependents/fontAwesome/css/font-awesome.min.css}"
 	media="all" />
 <!-- DLShouWen Grid -->
-<script type="text/javascript" th:src="@{/zogrid/dlshouwen.grid.js}"></script>
-<script type="text/javascript" th:src="@{/zogrid/i18n/zh-cn.js}"></script>
+<script type="text/javascript" th:src="@{/resources/zogrid/dlshouwen.grid.js}"></script>
+<script type="text/javascript" th:src="@{/resources/zogrid/i18n/zh-cn.js}"></script>
 <link rel="stylesheet" type="text/css"
-	th:href="@{/zogrid/dlshouwen.grid.css}" />
+	th:href="@{/resources/zogrid/dlshouwen.grid.css}" />
 <!-- datePicker -->
 <script type="text/javascript"
-	th:src="@{/zogrid/dependents/datePicker/WdatePicker.js}" defer="defer"></script>
+	th:src="@{/resources/zogrid/dependents/datePicker/WdatePicker.js}" defer="defer"></script>
 <link rel="stylesheet" type="text/css"
-	th:href="@{/zogrid/dependents/datePicker/skin/WdatePicker.css}" />
+	th:href="@{/resources/zogrid/dependents/datePicker/skin/WdatePicker.css}" />
 <link rel="stylesheet" type="text/css"
-	th:href="@{/zogrid/dependents/datePicker/skin/default/datepicker.css}" />
+	th:href="@{/resources/zogrid/dependents/datePicker/skin/default/datepicker.css}" />
 
 
-<script>
+<script th:inline="javascript">
 	//<![CDATA[
-
+		window.curUserName = [[${username}]];
 	//]]>
 </script>
 
@@ -61,5 +66,5 @@
 
 
 </body>
-<script type="text/javascript" th:src="@{/js/admin.js}"></script>
+<script type="text/javascript" th:src="@{/resources/js/admin.js}"></script>
 </html>

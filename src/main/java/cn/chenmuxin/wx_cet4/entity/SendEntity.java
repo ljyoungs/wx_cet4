@@ -7,7 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
@@ -33,6 +32,7 @@ public class SendEntity {
 	
 	@ColumnDefault(value = "false")
 	private boolean isPushed;
+	
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@CreationTimestamp

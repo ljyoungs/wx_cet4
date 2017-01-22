@@ -1,2 +1,7 @@
+<<<<<<< HEAD
+./setting
+/target/
+=======
 ./.settings
 ./*.bak
+>>>>>>> af3b1fa5f5edb4e56ef973fefa091a39fb74124c
