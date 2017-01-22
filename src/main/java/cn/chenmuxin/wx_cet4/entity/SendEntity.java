@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Past;
 
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
@@ -27,10 +29,12 @@ public class SendEntity {
 	@Type(type="text")
 	private String content;
 	
+
 	private int core;
 	
 	@ColumnDefault(value = "false")
 	private boolean isPushed;
+	
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@CreationTimestamp
