@@ -39,42 +39,9 @@ public class FileUploadController {
 	@Autowired
 	private ReadXlsService readXlsService;
 
-//	@RequestMapping(value = "/upload", method = RequestMethod.POST)
-//	@ResponseBody
-//	public List<File> uploadFile(MultipartHttpServletRequest request) throws IOException {
-//		// 首先定义了一个List<File>用于保存所有文件上传后所在位置，以便后续做出一系列处理。
-//		List<File> uploadFileList = new ArrayList<File>();
-//		// 拿到name为files的文件上传表单内容（支持多文件）
-//		List<MultipartFile> files = request.getFiles("files");
-//		// 拿到name为test的表单项
-//		String test = request.getParameter("test");
-//		// 获取项目真实路径
-//		String path = request.getSession().getServletContext().getRealPath("");
-//		// 指定temp文件夹
-//		String tmpPath = path + File.separator + "temp";
-//		File filePath = new File(tmpPath);
-//		if (!filePath.exists() || !filePath.isDirectory()) {
-//			filePath.mkdirs();
-//		}
-//		// 上传等同于输入输出流的正常操作，拿到输入流的bytes往输出流送
-//		for (MultipartFile multipartFile : files) {
-//			if (!multipartFile.isEmpty()) {
-//				File tempFile = new File(filePath + File.separator + multipartFile.getOriginalFilename());
-//				FileOutputStream fos = new FileOutputStream(tempFile);
-//				BufferedOutputStream bos = new BufferedOutputStream(fos);
-//				bos.write(multipartFile.getBytes());
-//				bos.close();
-//				fos.close();
-//				uploadFileList.add(tempFile);
-//			}
-//		}
-//		System.out.println(uploadFileList);
-//		return uploadFileList;
-//	}
-
 	@RequestMapping(value = "/file/upload", method = { RequestMethod.POST })
 	@ResponseBody
-	public String uploadFile(MultipartHttpServletRequest request) throws IOException {
+	public String uploadFile(MultipartHttpServletRequest request,@RequestParam("action") int action) throws IOException {
 		List<MultipartFile> files = request.getFiles("files");
 		List<String> tempFiles = new ArrayList<>();
 		// 拿到项目目录下的缓存路径
@@ -104,10 +71,8 @@ public class FileUploadController {
 				break;
 			}
 		}
-		System.out.println(files);
-		System.out.println(tempFiles);
 		// 在这一步已经拿到上传文件列表
-		return readXlsService.getDataFromExcel(tempFiles);
+		return readXlsService.getDataFromExcel(tempFiles,action);
 	
 	}
 

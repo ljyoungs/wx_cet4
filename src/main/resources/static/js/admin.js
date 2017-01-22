@@ -54,7 +54,7 @@ function getListen() {
 		columnClass : 'text-center',
 		fastQuery : true,
 		newData : true,
-		hideType : 'md|sm|xs|lg'
+		/*hideType : 'md|sm|xs|lg'*/
 	}, {
 		id : 'audio',
 		title : '听力附件',
@@ -116,7 +116,7 @@ function getListen() {
 		},
 		exportURL : '/export',
 		importURL : '/file/upload',
-		importAction : "none",
+		importAction : "0",
 		fastQueryURL : "/users/search/default"
 	};
 	var grid = $.fn.dlshouwen.grid.init(gridOption);

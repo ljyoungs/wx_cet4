@@ -27,7 +27,9 @@ public class SendEntity {
 	@Type(type="text")
 	private String content;
 	
-	private int core;
+	private String core;
+	
+	private String answer;
 	
 	@ColumnDefault(value = "false")
 	private boolean isPushed;
@@ -40,6 +42,14 @@ public class SendEntity {
 	private Date pushTime;
 
 	
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -56,11 +66,13 @@ public class SendEntity {
 		this.content = content;
 	}
 
-	public int getCore() {
+	
+
+	public String getCore() {
 		return core;
 	}
 
-	public void setCore(int core) {
+	public void setCore(String core) {
 		this.core = core;
 	}
 
