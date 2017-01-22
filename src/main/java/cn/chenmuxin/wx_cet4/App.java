@@ -10,7 +10,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class App 
 {
-	//加个注释传上去12323412额啊申请维权
     public static void main( String[] args )
     {
         SpringApplication.run(App.class, args);

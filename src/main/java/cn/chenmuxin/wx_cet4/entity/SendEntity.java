@@ -7,9 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Past;
-
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
@@ -29,8 +26,9 @@ public class SendEntity {
 	@Type(type="text")
 	private String content;
 	
-
-	private int core;
+	private String core;
+	
+	private String answer;
 	
 	@ColumnDefault(value = "false")
 	private boolean isPushed;
@@ -44,6 +42,14 @@ public class SendEntity {
 	private Date pushTime;
 
 	
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -60,11 +66,13 @@ public class SendEntity {
 		this.content = content;
 	}
 
-	public int getCore() {
+	
+
+	public String getCore() {
 		return core;
 	}
 
-	public void setCore(int core) {
+	public void setCore(String core) {
 		this.core = core;
 	}
 

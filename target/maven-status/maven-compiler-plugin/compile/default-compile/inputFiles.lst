@@ -2,14 +2,12 @@ G:\git\wx_cet4\src\main\java\cn\chenmuxin\wx_cet4\serializer\DateSerializer.java
 G:\git\wx_cet4\src\main\java\cn\chenmuxin\wx_cet4\controller\ReadController.java
 G:\git\wx_cet4\src\main\java\cn\chenmuxin\wx_cet4\entity\Option.java
 G:\git\wx_cet4\src\main\java\cn\chenmuxin\wx_cet4\util\OtherUtil.java
-G:\git\wx_cet4\src\main\java\cn\chenmuxin\wx_cet4\controller\OptionController.java
 G:\git\wx_cet4\src\main\java\cn\chenmuxin\wx_cet4\repository\WordRepository.java
 G:\git\wx_cet4\src\main\java\cn\chenmuxin\wx_cet4\entity\Listen.java
 G:\git\wx_cet4\src\main\java\cn\chenmuxin\wx_cet4\entity\Writing.java
 G:\git\wx_cet4\src\main\java\cn\chenmuxin\wx_cet4\App.java
 G:\git\wx_cet4\src\main\java\cn\chenmuxin\wx_cet4\entity\SendEntity.java
 G:\git\wx_cet4\src\main\java\cn\chenmuxin\wx_cet4\entity\Question.java
-G:\git\wx_cet4\src\main\java\cn\chenmuxin\wx_cet4\repository\OptionRepository.java
 G:\git\wx_cet4\src\main\java\cn\chenmuxin\wx_cet4\controller\SendEntityController.java
 G:\git\wx_cet4\src\main\java\cn\chenmuxin\wx_cet4\repository\SendEntityRepository.java
 G:\git\wx_cet4\src\main\java\cn\chenmuxin\wx_cet4\controller\FileUploadController.java
