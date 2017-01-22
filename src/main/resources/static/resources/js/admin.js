@@ -1,3 +1,5 @@
+
+
 var menu = [ {
 	name : "听力",
 	img : "resources/plugin/adminTemplate-master/img/icons/menu/inbox.png",
@@ -14,6 +16,7 @@ var menu = [ {
 adminTemplate.init({
 	menu : menu,
 	managerIcon : '/resources/img/huser.png',
+	managerName : window.curUserName,
 	logoutUrl : '/login?logout',
 	searchCallback : function(key) {
 		alert("您要搜索的为：" + key);

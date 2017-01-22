@@ -55,9 +55,9 @@
 	th:href="@{/resources/zogrid/dependents/datePicker/skin/default/datepicker.css}" />
 
 
-<script>
+<script th:inline="javascript">
 	//<![CDATA[
-
+		window.curUserName = [[${username}]];
 	//]]>
 </script>
 
