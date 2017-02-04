@@ -12,7 +12,11 @@ var menu = [ {
 	name : "写作",
 	img : "resources/plugin/adminTemplate-master/img/icons/menu/brush.png",
 	key : "three"
-} ];
+} ,{
+	name : "单词",
+	img : "resources/plugin/adminTemplate-master/img/icons/menu/brush.png",
+	key : "four"
+}];
 adminTemplate.init({
 	menu : menu,
 	managerIcon : '/resources/img/huser.png',
@@ -42,14 +46,91 @@ function handler(key, text, title, content) {
 		getRead();
 		break;
 	}
-	default: {
+	case "three": {
 		content
-				.html('<div id="containerWriting" class="dlshouwen-grid-container" onselectstart="return false;" style="-moz-user-select: none;"></div> <div id="toolBarWriting" class="dlshouwen-grid-toolbar-container"></div>');
+		.html('<div id="containerRead" class="dlshouwen-grid-container" onselectstart="return false;" style="-moz-user-select: none;"></div> <div id="toolBarRead" class="dlshouwen-grid-toolbar-container"></div>');
 		getWriting();
+		break;
+	}
+	case "four": {
+		content
+		.html('<div id="containerWord" class="dlshouwen-grid-container" onselectstart="return false;" style="-moz-user-select: none;"></div> <div id="toolBarWord" class="dlshouwen-grid-toolbar-container"></div>');
+		getWord();
+		break;
+	}
+	default: {
+		
 	}
 	}
 
 }
+
+function getWord() {
+	var gridColumns = [ {
+		id : 'word',
+		title : '单词',
+		type : 'string',
+		columnClass : 'text-center',
+		fastQuery : true,
+		newData : true,
+		/*hideType : 'md|sm|xs|lg'*/
+	}, {
+		id : 'explanation',
+		title : '释义',
+		type : 'string',
+		columnClass : 'text-center',
+		fastQuery : true,
+		newData : true
+	}, {
+		id : 'audio',
+		title : '附件',
+		type : 'string',
+		columnClass : 'text-center',
+		fastQuery : true,
+		newData : true
+	}, {
+		id : 'createTime',
+		title : '创建时间',
+		type : 'date',
+		columnClass : 'text-center',
+		fastQuery : true
+	}, {
+		type : "controll",
+		columnClass : 'text-center',
+		edit_btn : true,
+		del_btn : true
+	} ];
+	var gridOption = {
+		dataPath : "_embedded.words",
+		ajaxLoad : true,
+		exportFileName : '用户列表',
+		loadURL : '/data/words',
+		columns : gridColumns,
+		gridContainer : 'containerWord',
+		toolbarContainer : 'toolBarWord',
+		pageSize : 10,
+		pageSizeLimit : [ 10, 15, 20, 50, 100 ],
+		lang : 'zh-cn',
+		tools : 'refresh|fastQuery|newData|export[excel]|importExcel',
+		pagerDetailPath : {
+			pagerRootPath : "page",
+			page : "number",
+			size : "size",
+			totalElements : "totalElements",
+			totalPages : "totalPages",
+			firstPage : 0
+		},
+		exportURL : '/export',
+		importURL : '/file/upload',
+		importAction : "word",
+		fastQueryURL : "/users/search/default",
+	    //导出的文件类型
+	    exportType:"excel"
+	
+	};
+	var grid = $.fn.dlshouwen.grid.init(gridOption);
+	grid.load();
+};
 
 function getListen() {
 	var gridColumns = [ {
@@ -110,7 +191,7 @@ function getListen() {
 		pageSize : 10,
 		pageSizeLimit : [ 10, 15, 20, 50, 100 ],
 		lang : 'zh-cn',
-		tools : 'refresh|fastQuery|newData|export[excel,csv,pdf,txt]|importExcel',
+		tools : 'refresh|fastQuery|newData|export[excel]|importExcel',
 		pagerDetailPath : {
 			pagerRootPath : "page",
 			page : "number",
@@ -121,8 +202,11 @@ function getListen() {
 		},
 		exportURL : '/export',
 		importURL : '/file/upload',
-		importAction : "0",
-		fastQueryURL : "/users/search/default"
+		importAction : "listen",
+		fastQueryURL : "/users/search/default",
+	    //导出的文件类型
+	    exportType:"excel"
+	
 	};
 	var grid = $.fn.dlshouwen.grid.init(gridOption);
 	grid.load();
@@ -277,5 +361,6 @@ $(document).ajaxComplete(function() {
 })
 
 $(document).ready(function() {
-
+	 
+	layer.msg('hello'); 	  
 });
