@@ -8,4 +8,4 @@
 
 2. 简洁、扩展性强，处理逻辑清晰。 
  
-[查看演示](http://chenmuxin.cn/adminTemplate/admin.html)
+[查看演示](http://pengshengyang.cn/adminTemplate/admin.html)
